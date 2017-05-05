@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 //using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using EventBookingSystem.Models;
 
 namespace EventBookingSystem
 {
@@ -28,15 +29,15 @@ namespace EventBookingSystem
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            // services.AddDbContext<ApplicationDbContext>(options 
-            //     => options.UseMySql( Configuration["Data:EvenBookingSystem:ConnectionString"]));
+            services.AddDbContext<ApplicationDbContext>(options 
+                => options.UseMySql(Configuration["Data:EventBookingSystem:ConnectionString"]));
             // services.AddDbContext<AppIdentityDbContext>(options 
             //     => options.UseMySql( Configuration["Data:EvenBookingSystemIdentity:ConnectionString"]));
             // services.AddIdentity<IdentityUser, IdentityRole>() 
             //     .AddEntityFrameworkStores<AppIdentityDbContext>();
-            // services.AddTransient<IEventCreateRepository, EFEventCreatRepository>();
+            services.AddTransient<ICreatedEventRepository, EFCreatedEventRepository>();
             // //services.AddScoped<Cart>(sp => SessionCart.GetCart(sp)); 
-            // //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             // services.AddTransient<IParticipateRepository, EFParticipateRepository>();
             services.AddMvc();
             services.AddMemoryCache();
@@ -54,7 +55,34 @@ namespace EventBookingSystem
 
             // app.UseSession();
             // app.UseIdentity();
-            app.UseMvcWithDefaultRoute();
+             app.UseMvc(routes => {
+                routes.MapRoute(
+                    name: "Error", 
+                    template: "Error", 
+                    defaults: new { controller = "Error", action = "Error" }
+                );
+                routes.MapRoute(
+                    name:null,
+                    template:"{category}/Page{page:int}",
+                    defaults: new {Controller="Home", action="Index"}
+                );
+                routes.MapRoute( 
+                    name: null, 
+                    template: "Page{page:int}", 
+                    defaults: new { controller = "Home", action = "Index", page = 1 } );
+                routes.MapRoute( 
+                    name: null, 
+                    template: "{category}", 
+                    defaults: new { controller = "Home", action = "Index", page = 1 } );
+                routes.MapRoute(
+                    name: null, 
+                    template: "", 
+                    defaults: new { controller = "Home", action = "Index", page = 1 });
+                routes.MapRoute(
+                    name: null, 
+                    template: "{controller}/{action}/{id?}");
+            });
+            SeedData.EnsurePopulated(app);
         }
     }
 }

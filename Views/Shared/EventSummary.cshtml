@@ -1,0 +1,16 @@
+@model CreatedEvent
+
+<div class="well"> 
+    <h3> 
+        <strong>@Model.Title</strong> 
+        <span class="pull-right label label-primary">@Model.Price.ToString("c") </span> 
+    </h3> 
+    <form id="@Model.ID" asp-action="Join" asp-controller="Home" method="post"> 
+        <input type="hidden" asp-for="ID" /> 
+        <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" /> 
+        <span class="lead"> 
+            Maximum: @Model.Capacities 
+            <button type="submit" class="btn btn-success btn-sm pull-right"> Join </button>
+        </span> 
+    </form> 
+</div>
