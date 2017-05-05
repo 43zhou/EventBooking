@@ -1,0 +1,16 @@
+/Users/zhexuanzhou/Desktop/Event booking system/src/Event booking system/bin/Debug/netcoreapp1.1/EventBookingSystem.deps.json
+/Users/zhexuanzhou/Desktop/Event booking system/src/Event booking system/bin/Debug/netcoreapp1.1/EventBookingSystem.runtimeconfig.json
+/Users/zhexuanzhou/Desktop/Event booking system/src/Event booking system/bin/Debug/netcoreapp1.1/EventBookingSystem.runtimeconfig.dev.json
+/Users/zhexuanzhou/Desktop/Event booking system/src/Event booking system/bin/Debug/netcoreapp1.1/EventBookingSystem.dll
+/Users/zhexuanzhou/Desktop/Event booking system/src/Event booking system/bin/Debug/netcoreapp1.1/EventBookingSystem.pdb
+/Users/zhexuanzhou/Desktop/Event booking system/src/Event booking system/obj/Debug/netcoreapp1.1/EventBookingSystem.AssemblyInfo.cs
+/Users/zhexuanzhou/Desktop/Event booking system/src/Event booking system/obj/Debug/netcoreapp1.1/EventBookingSystem.dll
+/Users/zhexuanzhou/Desktop/Event booking system/src/Event booking system/obj/Debug/netcoreapp1.1/EventBookingSystem.pdb
+/Users/zhexuanzhou/Desktop/EventBookingSystem/src/EventBookingSystem/bin/Debug/netcoreapp1.1/EventBookingSystem.deps.json
+/Users/zhexuanzhou/Desktop/EventBookingSystem/src/EventBookingSystem/bin/Debug/netcoreapp1.1/EventBookingSystem.runtimeconfig.json
+/Users/zhexuanzhou/Desktop/EventBookingSystem/src/EventBookingSystem/bin/Debug/netcoreapp1.1/EventBookingSystem.runtimeconfig.dev.json
+/Users/zhexuanzhou/Desktop/EventBookingSystem/src/EventBookingSystem/bin/Debug/netcoreapp1.1/EventBookingSystem.dll
+/Users/zhexuanzhou/Desktop/EventBookingSystem/src/EventBookingSystem/bin/Debug/netcoreapp1.1/EventBookingSystem.pdb
+/Users/zhexuanzhou/Desktop/EventBookingSystem/src/EventBookingSystem/obj/Debug/netcoreapp1.1/EventBookingSystem.AssemblyInfo.cs
+/Users/zhexuanzhou/Desktop/EventBookingSystem/src/EventBookingSystem/obj/Debug/netcoreapp1.1/EventBookingSystem.dll
+/Users/zhexuanzhou/Desktop/EventBookingSystem/src/EventBookingSystem/obj/Debug/netcoreapp1.1/EventBookingSystem.pdb

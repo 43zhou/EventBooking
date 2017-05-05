@@ -1,0 +1,8 @@
+/Users/zhexuanzhou/Desktop/Event booking system/src/Event booking system/bin/Debug/netcoreapp1.1/Event booking system.deps.json
+/Users/zhexuanzhou/Desktop/Event booking system/src/Event booking system/bin/Debug/netcoreapp1.1/Event booking system.runtimeconfig.json
+/Users/zhexuanzhou/Desktop/Event booking system/src/Event booking system/bin/Debug/netcoreapp1.1/Event booking system.runtimeconfig.dev.json
+/Users/zhexuanzhou/Desktop/Event booking system/src/Event booking system/bin/Debug/netcoreapp1.1/Event booking system.dll
+/Users/zhexuanzhou/Desktop/Event booking system/src/Event booking system/bin/Debug/netcoreapp1.1/Event booking system.pdb
+/Users/zhexuanzhou/Desktop/Event booking system/src/Event booking system/obj/Debug/netcoreapp1.1/Event booking system.AssemblyInfo.cs
+/Users/zhexuanzhou/Desktop/Event booking system/src/Event booking system/obj/Debug/netcoreapp1.1/Event booking system.dll
+/Users/zhexuanzhou/Desktop/Event booking system/src/Event booking system/obj/Debug/netcoreapp1.1/Event booking system.pdb
