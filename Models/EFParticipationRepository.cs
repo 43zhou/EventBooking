@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace EventBookingSystem.Models
 {
@@ -12,9 +13,26 @@ namespace EventBookingSystem.Models
         }
         public IEnumerable<Participation> participations => context.Participations;
 
-        public void SaveOrder(Participation participation)
+        public void SaveEvent(Participation participation)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            if (participation.ID == 0 && participation != null)
+            {
+                context.Participations.Add(participation);
+            }
+            else
+            {
+                Participation dbEntry = context.Participations
+                    .FirstOrDefault(p=>p.ID==participation.ID);
+                if(dbEntry!=null)
+                {
+                    dbEntry.CreatedEvent=participation.CreatedEvent;
+                    dbEntry.StudentNumber=participation.StudentNumber;
+                    dbEntry.Title=participation.Title;
+                    dbEntry.Username=participation.Username;
+                }
+            }
+            context.SaveChanges();
         }
     }
 }

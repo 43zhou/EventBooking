@@ -31,13 +31,14 @@ namespace EventBookingSystem
         {
             services.AddDbContext<ApplicationDbContext>(options 
                 => options.UseMySql(Configuration["Data:EventBookingSystem:ConnectionString"]));
-            // services.AddDbContext<AppIdentityDbContext>(options 
-            //     => options.UseMySql( Configuration["Data:EvenBookingSystemIdentity:ConnectionString"]));
-            // services.AddIdentity<IdentityUser, IdentityRole>() 
-            //     .AddEntityFrameworkStores<AppIdentityDbContext>();
+            services.AddDbContext<AppIdentityDbContext>(options 
+                => options.UseMySql(Configuration["Data:EventBookingSystemIdentity:ConnectionString"]));
+            services.AddIdentity<IdentityUser, IdentityRole>() 
+                .AddEntityFrameworkStores<AppIdentityDbContext>();
             services.AddTransient<ICreatedEventRepository, EFCreatedEventRepository>();
+            services.AddTransient<IParticipationRepository, EFParticipationRepository>();
             // //services.AddScoped<Cart>(sp => SessionCart.GetCart(sp)); 
-            //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             // services.AddTransient<IParticipateRepository, EFParticipateRepository>();
             services.AddMvc();
             services.AddMemoryCache();
@@ -53,9 +54,9 @@ namespace EventBookingSystem
             app.UseStatusCodePages();
             app.UseStaticFiles();
 
-            // app.UseSession();
-            // app.UseIdentity();
-             app.UseMvc(routes => {
+            app.UseSession();
+            app.UseIdentity();
+            app.UseMvc(routes => {
                 routes.MapRoute(
                     name: "Error", 
                     template: "Error", 
@@ -83,6 +84,7 @@ namespace EventBookingSystem
                     template: "{controller}/{action}/{id?}");
             });
             SeedData.EnsurePopulated(app);
+            IdentitySeedData.EnsurePopulated(app);
         }
     }
 }

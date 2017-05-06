@@ -5,11 +5,17 @@
         <strong>@Model.Title</strong> 
         <span class="pull-right label label-primary">@Model.Price.ToString("c") </span> 
     </h3> 
+    
+       @if(@TempData["ID"]!=null){
+            if(@TempData["ID"].ToString()==@Model.ID.ToString()){
+                <div class="alert alert-success">You have joined this activity! </div> 
+            }
+        }
     <form id="@Model.ID" asp-action="Join" asp-controller="Home" method="post"> 
         <input type="hidden" asp-for="ID" /> 
         <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" /> 
         <span class="lead"> 
-            Maximum: @Model.Capacities 
+            Participation: @Model.CountOfParticipation/@Model.Capacities 
             <button type="submit" class="btn btn-success btn-sm pull-right"> Join </button>
         </span> 
     </form> 

@@ -7,5 +7,6 @@ namespace EventBookingSystem.Models.ViewModels
         public IEnumerable<CreatedEvent> CreatedEvents{get;set;}
         public PagingInfo PagingInfo{get;set;}   
         public string CurrentCategory{get;set;}
+        public IEnumerable<Participation> Participations{get;set;}
     }
 }

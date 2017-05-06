@@ -8,7 +8,7 @@ using EventBookingSystem.Models;
 namespace EventBookingSystem.Data.ApplicationDbContext
 {
     [DbContext(typeof(EventBookingSystem.Models.ApplicationDbContext))]
-    [Migration("20170505105057_InitialCreate")]
+    [Migration("20170506092802_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,17 +23,22 @@ namespace EventBookingSystem.Data.ApplicationDbContext
 
                     b.Property<int>("Capacities");
 
-                    b.Property<string>("Category");
+                    b.Property<string>("Category")
+                        .IsRequired();
+
+                    b.Property<int>("CountOfParticipation");
 
                     b.Property<DateTime>("Date");
 
                     b.Property<decimal>("Price");
 
-                    b.Property<string>("PromotionalCode");
+                    b.Property<string>("PromotionalCode")
+                        .IsRequired();
 
                     b.Property<string>("StudentNameber");
 
-                    b.Property<string>("Title");
+                    b.Property<string>("Title")
+                        .IsRequired();
 
                     b.Property<string>("Username");
 

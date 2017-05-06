@@ -15,12 +15,13 @@ namespace EventBookingSystem.Data.ApplicationDbContext
                     ID = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGeneratedOnAdd", true),
                     Capacities = table.Column<int>(nullable: false),
-                    Category = table.Column<string>(nullable: true),
+                    Category = table.Column<string>(nullable: false),
+                    CountOfParticipation = table.Column<int>(nullable: false),
                     Date = table.Column<DateTime>(nullable: false),
                     Price = table.Column<decimal>(nullable: false),
-                    PromotionalCode = table.Column<string>(nullable: true),
+                    PromotionalCode = table.Column<string>(nullable: false),
                     StudentNameber = table.Column<string>(nullable: true),
-                    Title = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: false),
                     Username = table.Column<string>(nullable: true)
                 },
                 constraints: table =>

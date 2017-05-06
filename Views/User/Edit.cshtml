@@ -1,0 +1,42 @@
+@model CreatedEvent 
+@{
+    ViewBag.Title = "Edit Event";
+    Layout = "_UserLayout"; 
+}
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="ID" /> 
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <div><span asp-validation-for="Title" class="text-danger"></span></div>
+        <input asp-for="Title" class="form-control"/> 
+    </div> 
+    <div class="form-group">
+        <label asp-for="Date"></label> 
+        <div><span asp-validation-for="Date" class="text-danger"></span></div>
+        <textarea asp-for="Date" class="form-control"></textarea> 
+    </div> 
+    <div class="form-group"> 
+        <label asp-for="Category"></label> 
+        <div><span asp-validation-for="Category" class="text-danger"></span></div>
+        <input asp-for="Category" class="form-control" /> 
+    </div> 
+    <div class="form-group"> 
+        <label asp-for="Price"></label> 
+        <div><span asp-validation-for="Price" class="text-danger"></span></div>
+        <input asp-for="Price" class="form-control" /> 
+    </div> 
+    <div class="form-group"> 
+        <label asp-for="PromotionalCode"></label> 
+        <div><span asp-validation-for="PromotionalCode" class="text-danger"></span></div>
+        <input asp-for="PromotionalCode" class="form-control" /> 
+    </div> 
+    <div class="form-group"> 
+        <label asp-for="Capacities"></label> 
+        <div><span asp-validation-for="Capacities" class="text-danger"></span></div>
+        <input asp-for="Capacities" class="form-control" /> 
+    </div> 
+    <div class="text-center"> 
+        <button class="btn btn-primary" type="submit">Save</button> 
+        <a asp-action="CreatedEvents" class="btn btn-default">Cancel</a> 
+    </div> 
+</form>
