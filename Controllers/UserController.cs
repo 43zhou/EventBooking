@@ -63,7 +63,29 @@ namespace EventBookingSystem.Controllers
             { 
                 TempData["message"] = $"{deletedProduct.Title} was deleted"; 
             } 
-            return RedirectToAction("Index"); 
+            return RedirectToAction("CreatedEvents"); 
+        }
+
+        public ViewResult Participated()
+        {
+            return View(new EventListViewModel{
+                Participations=pRepository.participations
+                    .Where(c=>c.Username==User.Identity.Name)
+                    .OrderBy(e=>e.ID)
+            });
+        }
+        [HttpPost]
+        public IActionResult Cancel(int id) 
+        { 
+            Participation deletedEvet = pRepository.DeleteParticipatedEvent(id); 
+            if (deletedEvet != null) 
+            { 
+                var dbEntry=ceRepository.CreatedEvents.Where(c=>c.ID==deletedEvet.CreatedEventID).FirstOrDefault();
+                dbEntry.CountOfParticipation-=1;
+                ceRepository.SaveEvent(dbEntry);
+                // TempData["message"] = $"{deletedProduct.Title} was deleted"; 
+            } 
+            return RedirectToAction("Participated"); 
         }
     }
 }

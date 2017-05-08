@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace EventBookingSystem.Models
@@ -21,6 +22,7 @@ namespace EventBookingSystem.Models
         [Required(ErrorMessage = "Please enter a Category")]
         public string Category{get;set;}
         public int CountOfParticipation{get;set;} = 0;
+        public ICollection<Participation> Participations{get;set;}
         
     }
 }

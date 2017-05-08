@@ -8,7 +8,7 @@ using EventBookingSystem.Models;
 namespace EventBookingSystem.Data.ApplicationDbContext
 {
     [DbContext(typeof(EventBookingSystem.Models.ApplicationDbContext))]
-    [Migration("20170506092802_InitialCreate")]
+    [Migration("20170508051014_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,7 +52,7 @@ namespace EventBookingSystem.Data.ApplicationDbContext
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("CreatedEventID");
+                    b.Property<int>("CreatedEventID");
 
                     b.Property<string>("StudentNumber");
 
@@ -70,8 +70,9 @@ namespace EventBookingSystem.Data.ApplicationDbContext
             modelBuilder.Entity("EventBookingSystem.Models.Participation", b =>
                 {
                     b.HasOne("EventBookingSystem.Models.CreatedEvent", "CreatedEvent")
-                        .WithMany()
-                        .HasForeignKey("CreatedEventID");
+                        .WithMany("Participations")
+                        .HasForeignKey("CreatedEventID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
         }
     }

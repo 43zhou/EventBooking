@@ -6,5 +6,6 @@ namespace EventBookingSystem.Models
     {
          IEnumerable<Participation> participations{get;}
          void SaveEvent(Participation participation); 
+         Participation DeleteParticipatedEvent(int participatedEventID);
     }
 }

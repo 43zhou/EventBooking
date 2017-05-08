@@ -23,16 +23,28 @@ namespace EventBookingSystem.Models
             else
             {
                 Participation dbEntry = context.Participations
-                    .FirstOrDefault(p=>p.ID==participation.ID);
+                    .Where(p=>p.ID==participation.ID)
+                    .FirstOrDefault();
                 if(dbEntry!=null)
                 {
-                    dbEntry.CreatedEvent=participation.CreatedEvent;
                     dbEntry.StudentNumber=participation.StudentNumber;
                     dbEntry.Title=participation.Title;
                     dbEntry.Username=participation.Username;
                 }
             }
             context.SaveChanges();
+        }
+
+        public Participation DeleteParticipatedEvent(int participatedEventID)
+        {
+            Participation dbEntry=context.Participations.Where(p=>p.ID==participatedEventID)
+                    .FirstOrDefault();
+            if(dbEntry!=null)
+            {
+                context.Participations.Remove(dbEntry);
+                context.SaveChanges();
+            }
+            return dbEntry;
         }
     }
 }

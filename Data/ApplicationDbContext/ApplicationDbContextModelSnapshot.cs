@@ -51,7 +51,7 @@ namespace EventBookingSystem.Data.ApplicationDbContext
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("CreatedEventID");
+                    b.Property<int>("CreatedEventID");
 
                     b.Property<string>("StudentNumber");
 
@@ -69,8 +69,9 @@ namespace EventBookingSystem.Data.ApplicationDbContext
             modelBuilder.Entity("EventBookingSystem.Models.Participation", b =>
                 {
                     b.HasOne("EventBookingSystem.Models.CreatedEvent", "CreatedEvent")
-                        .WithMany()
-                        .HasForeignKey("CreatedEventID");
+                        .WithMany("Participations")
+                        .HasForeignKey("CreatedEventID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
         }
     }

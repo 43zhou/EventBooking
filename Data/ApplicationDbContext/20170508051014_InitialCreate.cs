@@ -35,7 +35,7 @@ namespace EventBookingSystem.Data.ApplicationDbContext
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGeneratedOnAdd", true),
-                    CreatedEventID = table.Column<int>(nullable: true),
+                    CreatedEventID = table.Column<int>(nullable: false),
                     StudentNumber = table.Column<string>(nullable: true),
                     Title = table.Column<string>(nullable: true),
                     Username = table.Column<string>(nullable: true)
@@ -48,7 +48,7 @@ namespace EventBookingSystem.Data.ApplicationDbContext
                         column: x => x.CreatedEventID,
                         principalTable: "CreatedEvents",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
