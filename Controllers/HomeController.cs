@@ -31,7 +31,7 @@ namespace EventBookingSystem.Controllers
             return View(new EventListViewModel{
                 CreatedEvents=repository.CreatedEvents
                     .Where(c=>category==null || c.Category==category)
-                    .OrderBy(e=>e.ID)
+                    .OrderBy(e=>e.Date)
                     .Skip((page-1)*PageSize)
                     .Take(PageSize),
                 PagingInfo=new PagingInfo
@@ -47,7 +47,7 @@ namespace EventBookingSystem.Controllers
         }
         [Authorize]
         public RedirectToActionResult Join(){
-            TempData["message"]="f";
+            // TempData["message"]="f";
             return RedirectToAction("Index");
         }
 
@@ -77,7 +77,7 @@ namespace EventBookingSystem.Controllers
                 else
                 {
                     // ViewBag.Message = string.Format("You have joined this activity!");
-                    TempData["message"]="You have joined this activity!";
+                    // TempData["message_join"]="You have joined this activity!";
                     TempData["ID"]=entity.ID.ToString();
                 }
             }

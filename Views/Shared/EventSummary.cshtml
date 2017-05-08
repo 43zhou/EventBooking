@@ -2,8 +2,7 @@
 
 <div class="well"> 
     <h3> 
-        <strong>@Model.Title</strong> 
-        <span class="pull-right label label-primary">@Model.Price.ToString("c") </span> 
+        <strong>@Model.Title</strong>  
     </h3> 
     
        @if(@TempData["ID"]!=null){
@@ -15,6 +14,9 @@
         <input type="hidden" asp-for="ID" /> 
         <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" /> 
         <span class="lead"> 
+            Date: @Model.Date.ToString("dd MMM yyyy")
+            <span class="pull-right label label-primary">@Model.Price.ToString("c") </span> 
+            <br/>
             Participation: @Model.CountOfParticipation/@Model.Capacities 
             <button type="submit" class="btn btn-success btn-sm pull-right"> Join </button>
         </span> 
