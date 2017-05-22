@@ -1,3 +1,5 @@
+using System;
+
 namespace EventBookingSystem.Models
 {
     public class Participation
@@ -7,7 +9,8 @@ namespace EventBookingSystem.Models
         public string Title{get;set;}
         public string Username{get;set;}
         public string StudentNumber{get;set;}
-
+        public DateTime Date{get;set;}
+        public string Location{get;set;}
         public CreatedEvent CreatedEvent{get;set;}
     }
 }

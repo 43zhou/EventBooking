@@ -67,7 +67,9 @@ namespace EventBookingSystem.Controllers
                         CreatedEvent=entity,
                         Title=entity.Title,
                         StudentNumber=User.Identity.Name,
-                        Username=User.Identity.Name
+                        Date=entity.Date,
+                        Username=User.Identity.Name,
+                        Location=entity.Location
                     };
                     p_rope.SaveEvent(participate);
                     var dbEntity= repository.CreatedEvents.Where(e=>e.ID==ce.ID).FirstOrDefault();

@@ -48,6 +48,7 @@ namespace EventBookingSystem.Models
                     dbEntry.StudentNameber=createdEvent.StudentNameber;
                     dbEntry.Username=createdEvent.Username;
                     dbEntry.Category=createdEvent.Category;
+                    dbEntry.Location=createdEvent.Location;
                 }
             }
             context.SaveChanges();

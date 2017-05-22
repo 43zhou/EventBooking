@@ -35,6 +35,11 @@
         <div><span asp-validation-for="Capacities" class="text-danger"></span></div>
         <input asp-for="Capacities" class="form-control" /> 
     </div> 
+    <div class="form-group"> 
+        <label asp-for="Location"></label> 
+        <div><span asp-validation-for="Location" class="text-danger"></span></div>
+        <input asp-for="Location" class="form-control" /> 
+    </div> 
     <div class="text-center"> 
         <button class="btn btn-primary" type="submit">Save</button> 
         <a asp-action="CreatedEvents" class="btn btn-default">Cancel</a> 

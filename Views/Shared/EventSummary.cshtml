@@ -15,10 +15,14 @@
         <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" /> 
         <span class="lead"> 
             Date: @Model.Date.ToString("dd MMM yyyy")
+            @if(@Model.Date.ToString("HH")!="00"){
+                <text>Time: @Model.Date.ToString("HH:mm")</text>
+            }
             <span class="pull-right label label-primary">@Model.Price.ToString("c") </span> 
             <br/>
             Participation: @Model.CountOfParticipation/@Model.Capacities 
-            <button type="submit" class="btn btn-success btn-sm pull-right"> Join </button>
+            Location: @Model.Location
+            <button type="submit" class="btn btn-success btn-sm pull-right"> Book </button>
         </span> 
     </form> 
 </div>

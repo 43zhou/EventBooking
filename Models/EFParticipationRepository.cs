@@ -30,6 +30,9 @@ namespace EventBookingSystem.Models
                     dbEntry.StudentNumber=participation.StudentNumber;
                     dbEntry.Title=participation.Title;
                     dbEntry.Username=participation.Username;
+                    dbEntry.CreatedEventID=participation.CreatedEventID;
+                    dbEntry.Date=participation.Date;
+                    dbEntry.Location=participation.Location;
                 }
             }
             context.SaveChanges();
